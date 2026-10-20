@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - name: License check
+        run: ./scripts/licensecheck.sh
+      - name: Build (fuzz)
+        run: go build -tags=gofuzz ./...
+      - name: Vet
+        run: go vet ./...
+      - name: Staticcheck
+        run: go run honnef.co/go/tools/cmd/staticcheck@latest ./...
+      - name: Test
+        run: go test -v -race ./...
+      - name: Privileged integration test
+        run: |
+          go test -c ./smbios
+          sudo ./smbios.test -test.v

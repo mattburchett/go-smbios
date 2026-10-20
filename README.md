@@ -1,4 +1,4 @@
-go-smbios [![Build Status](https://travis-ci.org/digitalocean/go-smbios.svg?branch=master)](https://travis-ci.org/digitalocean/go-smbios) [![GoDoc](https://godoc.org/github.com/digitalocean/go-smbios/smbios?status.svg)](https://godoc.org/github.com/digitalocean/go-smbios/smbios) [![Go Report Card](https://goreportcard.com/badge/github.com/digitalocean/go-smbios)](https://goreportcard.com/report/github.com/digitalocean/go-smbios)
+go-smbios [![CI](https://github.com/digitalocean/go-smbios/actions/workflows/ci.yml/badge.svg)](https://github.com/digitalocean/go-smbios/actions/workflows/ci.yml) [![GoDoc](https://godoc.org/github.com/digitalocean/go-smbios/smbios?status.svg)](https://godoc.org/github.com/digitalocean/go-smbios/smbios) [![Go Report Card](https://goreportcard.com/badge/github.com/digitalocean/go-smbios)](https://goreportcard.com/report/github.com/digitalocean/go-smbios)
 =========
 
 Package `smbios` provides detection and access to System Management BIOS (SMBIOS)
@@ -18,7 +18,7 @@ To install this package, run:
 $ go get github.com/digitalocean/go-smbios/smbios
 ```
 
-This package is based on the [SMBIOS 3.1.1 specification](https://www.dmtf.org/sites/default/files/standards/documents/DSP0134_3.1.1.pdf),
+This package is based on the [SMBIOS 3.10.0 specification](https://www.dmtf.org/sites/default/files/standards/documents/DSP0134_3.10.0.pdf),
 but should work with SMBIOS 2.0 and above.
 
 In general, it's up to hardware manufacturers to properly populate SMBIOS data,

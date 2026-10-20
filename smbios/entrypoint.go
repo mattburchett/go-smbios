@@ -102,7 +102,7 @@ func (e *EntryPoint32Bit) Version() (major, minor, revision int) {
 func parse32(b []byte) (*EntryPoint32Bit, error) {
 	l := len(b)
 
-	// Correct minimum length as of SMBIOS 3.1.1.
+	// Correct minimum length as of SMBIOS 3.10.0.
 	const expLen = 31
 	if l < expLen {
 		return nil, fmt.Errorf("expected SMBIOS 32-bit entry point minimum length of at least %d, but got: %d", expLen, l)
@@ -180,7 +180,7 @@ func (e *EntryPoint64Bit) Version() (major, minor, revision int) {
 
 const (
 	// expLen64 is the expected minimum length of a 64-bit entry point.
-	// Correct minimum length as of SMBIOS 3.1.1.
+	// Correct minimum length as of SMBIOS 3.10.0.
 	expLen64 = 24
 
 	// chkIndex64 is the index of the checksum byte in a 64-bit entry point.
