@@ -17,7 +17,7 @@ package smbios
 import (
 	"bytes"
 	"encoding/hex"
-	"io/ioutil"
+	"io"
 	"testing"
 )
 
@@ -149,7 +149,7 @@ func Test_windowsStream(t *testing.T) {
 				t.Fatalf("bad revision: got %d, wanted %d", rev, revision)
 			}
 
-			streamData, err := ioutil.ReadAll(rc)
+			streamData, err := io.ReadAll(rc)
 			if err != nil {
 				t.Fatalf("failed to read stream: %v", err)
 			}

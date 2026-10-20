@@ -18,7 +18,6 @@ import (
 	"bytes"
 	"errors"
 	"io"
-	"io/ioutil"
 	"os"
 )
 
@@ -68,7 +67,7 @@ func memoryStream(rs io.ReadSeeker, startAddr, endAddr int) (io.ReadCloser, Entr
 		return nil, nil, err
 	}
 
-	return ioutil.NopCloser(bytes.NewReader(out)), ep, nil
+	return io.NopCloser(bytes.NewReader(out)), ep, nil
 }
 
 // findEntryPoint attempts to locate the entry point structure in the io.ReadSeeker

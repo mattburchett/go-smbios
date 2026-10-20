@@ -19,7 +19,6 @@ import (
 	"encoding/binary"
 	"fmt"
 	"io"
-	"io/ioutil"
 )
 
 // Anchor strings used to detect entry points.
@@ -48,7 +47,7 @@ type EntryPoint interface {
 // ParseEntryPoint parses an EntryPoint from the input stream.
 func ParseEntryPoint(r io.Reader) (EntryPoint, error) {
 	// Prevent unbounded reads since this structure should be small.
-	b, err := ioutil.ReadAll(io.LimitReader(r, 64))
+	b, err := io.ReadAll(io.LimitReader(r, 64))
 	if err != nil {
 		return nil, err
 	}
